@@ -1,0 +1,74 @@
+.ball {
+  position: absolute;
+  width: clamp(34px, 5.5vw, 46px);
+  height: clamp(34px, 5.5vw, 46px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  /* The inline style already provides the color and radial gradient;
+     we enhance with a specular highlight using a pseudo‑element */
+  box-shadow: 
+    inset 0 -6px 12px rgba(0,0,0,0.5),
+    0 6px 16px rgba(0,0,0,0.5),
+    0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Specular highlight dot */
+.ball::before {
+  content: '';
+  position: absolute;
+  top: 12%;
+  left: 18%;
+  width: 28%;
+  height: 20%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: rotate(-20deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Soft reflection */
+.ball::after {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  right: 12%;
+  width: 18%;
+  height: 12%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.number {
+  font-weight: 700;
+  font-size: clamp(12px, 1.8vw, 16px);
+  color: #0f172a;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+  z-index: 3;
+}
+
+.highlighted {
+  animation: pulseGlow 0.7s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 
+      inset 0 -6px 12px rgba(0,0,0,0.5),
+      0 6px 16px rgba(0,0,0,0.5),
+      0 0 0 5px rgba(255,215,0,0.7),
+      0 0 25px rgba(255,215,0,0.5);
+  }
+  50% {
+    box-shadow: 
+      inset 0 -6px 12px rgba(0,0,0,0.5),
+      0 6px 16px rgba(0,0,0,0.5),
+      0 0 0 9px rgba(255,215,0,1),
+      0 0 40px rgba(255,215,0,0.8);
+  }
+}
