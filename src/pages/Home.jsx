@@ -183,7 +183,7 @@ function Home() {
                 ✅ Draw Complete! Numbers: {revealedSlots.join(' • ')}
               </div>
               <p className={styles.warningNote}>
-                Kindly subscribe – the free spin is not guaranteed. You are liable for any loss.
+                Kindly subscribe now to start receiving 3 straight winning numbers. NOTE – the free spin is not guaranteed. You are liable for any loss.
               </p>
               <a
                 href="https://uk49-livid.vercel.app/login"
