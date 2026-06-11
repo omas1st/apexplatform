@@ -1,3 +1,4 @@
+// pages/Home.jsx (updated with live draw sections)
 import React, { useState, useRef, useCallback } from 'react';
 import Header from '../components/Header';
 import LotteryMachine from '../components/LotteryMachine';
@@ -5,6 +6,10 @@ import ResultSlots from '../components/ResultSlots';
 import SpinButton from '../components/SpinButton';
 import DrawAnimation from '../components/DrawAnimation';
 import TestimonialCarousel from '../components/TestimonialCarousel';
+import BrunchtimeDraw from '../components/BrunchtimeDraw';
+import LunchtimeDraw from '../components/LunchtimeDraw';
+import TeaTimeDraw from '../components/TeaTimeDraw';
+import DriveTimeDraw from '../components/DriveTimeDraw';
 import { fisherYatesShuffle } from '../utils/shuffle';
 import styles from './Home.module.css';
 
@@ -162,6 +167,14 @@ function Home() {
 
       {/* Success Stories Carousel */}
       <TestimonialCarousel />
+
+      {/* UK49-STYLE LIVE DRAW SECTIONS */}
+      <div className={styles.liveDrawsContainer}>
+        <BrunchtimeDraw />
+        <LunchtimeDraw />
+        <TeaTimeDraw />
+        <DriveTimeDraw />
+      </div>
 
       {/* Lottery Machine Section */}
       <section className={styles.machineSection}>
